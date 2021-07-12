@@ -17,6 +17,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@arthurka/eslint": "^1.6.0",
     "lock-verify": "^2.2.1",
     "typescript": "^4.2.4"
   },

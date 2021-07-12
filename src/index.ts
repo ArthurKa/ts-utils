@@ -10,7 +10,7 @@ export function ObjKeys<T>(obj: T): (keyof T)[] {
   return Object.keys(obj) as any;
 }
 
-export function ObjValues<T>(obj: T): (T[keyof T])[] {
+export function ObjValues<T>(obj: T): T[keyof T][] {
   return Object.values(obj) as any;
 }
 
@@ -23,7 +23,7 @@ export const twoDigitsMin = (value: string | number) => (
 export function trimMultiline(strings: TemplateStringsArray, ...params: unknown[]): string {
   const s = strings.map((e, i) => `${e}${i === params.length ? '' : params[i]}`).join('');
 
-  const whiteSpaceAmount = s.match(/\n?(\s*)\S/)?.[1]!.length;
+  const whiteSpaceAmount = s.match(/\n?(\s*)\S/)?.[1]?.length;
 
   let res = s.trim();
   if(whiteSpaceAmount) {
@@ -40,6 +40,7 @@ export function round(n: number, digits = 0) {
   if(afterDot[digits] === '5') {
     const arr = afterDot.split('');
     arr.splice(digits, 1, '9');
+    // eslint-disable-next-line no-param-reassign
     n = +`${beforeDot}.${arr.join('')}`;
   }
 
