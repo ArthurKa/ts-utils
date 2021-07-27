@@ -59,3 +59,5 @@ export function getRandom(a: any, b?: any) {
       ? Math.floor(Math.random() * a)
       : Math.floor(Math.random() * (b - a + 1)) + a;
 }
+
+export type ThenArg<T> = T extends PromiseLike<infer U> ? U : T;
