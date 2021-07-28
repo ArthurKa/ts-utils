@@ -64,3 +64,5 @@ export type ThenArg<T> = T extends PromiseLike<infer U> ? U : T;
 
 type TypeWithGeneric<T> = T[];
 export type ExtractGeneric<T> = T extends TypeWithGeneric<infer U> ? U : never;
+
+export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> ? [U, M, A] : never;
