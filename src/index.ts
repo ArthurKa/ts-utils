@@ -61,3 +61,6 @@ export function getRandom(a: any, b?: any) {
 }
 
 export type ThenArg<T> = T extends PromiseLike<infer U> ? U : T;
+
+type TypeWithGeneric<T> = T[];
+export type ExtractGeneric<T> = T extends TypeWithGeneric<infer U> ? U : never;
