@@ -60,7 +60,7 @@ export function getRandom(a: any, b?: any) {
       : Math.floor(Math.random() * (b - a + 1)) + a;
 }
 
-export type ThenArg<T> = T extends PromiseLike<infer U> ? U : T;
+export type ThenArg<T> = T extends PromiseLike<infer U> ? ThenArg<U> : T;
 
 type TypeWithGeneric<T> = T[];
 export type ExtractGeneric<T> = T extends TypeWithGeneric<infer U> ? U : never;
