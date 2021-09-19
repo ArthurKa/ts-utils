@@ -1,3 +1,7 @@
+import fs from 'fs';
+import path from 'path';
+import fetch from 'node-fetch';
+
 type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
@@ -70,3 +74,24 @@ export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> 
 export type GuardedType<T> = T extends (x: any) => x is infer T ? T : never;
 
 export const wait = (seconds: number) => new Promise<void>(res => setTimeout(res, seconds * 1000));
+
+export const downloadFile = async (url: string, filePath: string) => {
+  const download = async () => {
+    const { body } = await fetch(url);
+    const fileStream = fs.createWriteStream(filePath);
+
+    return new Promise((resolve, reject) => {
+      body.pipe(fileStream);
+      body.on('error', reject);
+      fileStream.on('finish', resolve);
+      fileStream.on('error', reject);
+    });
+  };
+
+  try {
+    await download();
+  } catch {
+    await fs.promises.mkdir(path.parse(filePath).dir, { recursive: true });
+    await download();
+  }
+};

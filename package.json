@@ -15,9 +15,13 @@
     "pu": "npm pu ./build && git p && git pt",
     "my-publish": "npm run publish:prepare && npm run pu"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^2.6.2"
+  },
   "devDependencies": {
     "@arthurka/eslint": "^1.6.0",
+    "@types/node": "^16.9.3",
+    "@types/node-fetch": "^2.5.12",
     "lock-verify": "^2.2.1",
     "typescript": "^4.2.4"
   },
