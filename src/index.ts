@@ -68,3 +68,5 @@ export type ExtractGeneric<T> = T extends TypeWithGeneric<infer U> ? U : never;
 export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> ? [U, M, A] : never;
 
 export type GuardedType<T> = T extends (x: any) => x is infer T ? T : never;
+
+export const wait = (seconds: number) => new Promise<void>(res => setTimeout(res, seconds * 1000));
