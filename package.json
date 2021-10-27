@@ -4,7 +4,6 @@
   "description": "Some convenient TS utilities.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "keywords": [],
   "scripts": {
     "build:clean": "rm -rf build/*",
     "ts": "tsc -w",
@@ -25,15 +24,16 @@
     "lock-verify": "^2.2.1",
     "typescript": "^4.2.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ArthurKa/ts-utils.git"
-  },
+  "keywords": [],
   "author": {
     "name": "ArthurKa",
     "email": "arthur.katruk@gmail.com"
   },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurKa/ts-utils.git"
+  },
   "bugs": {
     "url": "https://github.com/ArthurKa/ts-utils/issues"
   },
