@@ -71,6 +71,7 @@ export type ExtractGeneric<T> = T extends TypeWithGeneric<infer U> ? U : never;
 
 export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> ? [U, M, A] : never;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type GuardedType<T> = T extends (x: any) => x is infer T ? T : never;
 
 export const wait = (seconds: number) => new Promise<void>(res => setTimeout(res, seconds * 1000));
@@ -90,7 +91,7 @@ export const downloadFile = async (url: string, filePath: string) => {
 
   try {
     await download();
-  } catch {
+  } catch(e) {
     await fs.promises.mkdir(path.parse(filePath).dir, { recursive: true });
     await download();
   }
