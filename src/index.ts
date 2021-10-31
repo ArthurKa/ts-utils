@@ -96,3 +96,18 @@ export const downloadFile = async (url: string, filePath: string) => {
     await download();
   }
 };
+
+class ExtraPropertiesError<T> {
+  private noExtraProperty!: T;
+}
+
+export type ExactShape<T, Shape> = (
+  T extends Shape
+    ? Exclude<keyof T, keyof Shape> extends never
+      ? T
+      : ExtraPropertiesError<Shape>
+    : Shape
+);
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const checkExactShape = <Shape>() => <T>(_e: ExactShape<T, Shape>) => {};
