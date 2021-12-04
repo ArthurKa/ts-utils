@@ -111,3 +111,5 @@ export type ExactShape<T, Shape> = (
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const checkExactShape = <Shape>() => <T>(_e: ExactShape<T, Shape>) => {};
+
+export * from './makeUnderLangPropsCreator';
