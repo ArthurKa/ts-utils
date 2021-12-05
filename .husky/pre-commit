@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run lock-verify
+npm run ts:noWatch
+npm run lint:check -- --max-warnings 0

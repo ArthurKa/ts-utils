@@ -6,11 +6,16 @@
   "types": "build/index.d.ts",
   "scripts": {
     "build:clean": "rm -rf build/*",
-    "ts": "tsc -w",
+    "ts:noWatch": "tsc --noEmit",
+    "ts": "npm run ts:noWatch -- -w",
+    "lint:check": "eslint --ext js,jsx,ts,tsx src",
+    "lint:fix": "npm run lint:check -- --fix",
     "ts-compile": "tsc --declaration",
     "my-compile": "node ../compile.js",
-    "build": "lock-verify && npm run build:clean && npm run ts-compile && npm run my-compile",
-    "pu": "npm pu && git p && git pt"
+    "build": "npm run build:clean && npm run ts-compile && npm run my-compile",
+    "pu": "npm pu && git p && git pt",
+    "lock-verify": "lock-verify",
+    "prepare": "husky install"
   },
   "dependencies": {
     "node-fetch": "^2.6.2"
@@ -19,6 +24,7 @@
     "@arthurka/eslint": "^1.32.0",
     "@types/node": "^16.9.3",
     "@types/node-fetch": "^2.5.12",
+    "husky": "^7.0.4",
     "lock-verify": "^2.2.1",
     "typescript": "^4.5.2"
   },
