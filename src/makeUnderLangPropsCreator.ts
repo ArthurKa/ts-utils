@@ -54,28 +54,33 @@ const makeStructNodeLikeObj = <T extends SimpleNode, U extends string>(obj: T, l
 } as const);
 
 export function makeUnderLangPropsCreator<LANG_WILDCARD extends string>(langWildcard: LANG_WILDCARD) {
-  const _langWildcard = langWildcard;
+  const wildcards = [langWildcard];
 
-  return function makeUnderLangProps<T extends MyNode>(
-    obj: T,
-    langWildcard = _langWildcard,
-  ): Struct<T, LANG_WILDCARD> {
+  return function makeUnderLangProps<T extends MyNode>(obj: T): Struct<T, LANG_WILDCARD> {
     if(typeof obj === 'string') {
-      return makeUnderLangProps({ _: obj } as T, langWildcard);
+      return makeUnderLangProps({ _: obj } as T);
     }
 
     if(Object.keys(obj).length === 1) {
-      return makeStructNodeLikeObj(obj, langWildcard) as any;
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      return makeStructNodeLikeObj(obj, wildcards[wildcards.length - 1]!) as any;
     }
 
-    const struct = makeStructNodeLikeObj(obj, langWildcard);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const struct = makeStructNodeLikeObj(obj, wildcards[wildcards.length - 1]!);
 
     return {
       ...struct,
       ...Object.fromEntries(
         Object.entries(obj)
           .filter(([key]) => key !== '_')
-          .map(([key, val]) => [key, makeUnderLangProps(val, struct._path as any)]),
+          .map(([key, val]) => {
+            wildcards.push(struct._path as LANG_WILDCARD);
+            const res = [key, makeUnderLangProps(val)];
+            wildcards.pop();
+
+            return res;
+          }),
       ),
     } as any;
   };
