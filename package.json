@@ -15,6 +15,8 @@
     "build": "npm run build:clean && npm run ts-compile && npm run my-compile",
     "pu": "npm pu && git p && git pt",
     "lock-verify": "lock-verify",
+    "test": "mocha -r ts-node/register tests/**/*-test.ts",
+    "dtslint": "dtslint tests/types",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -22,10 +24,14 @@
   },
   "devDependencies": {
     "@arthurka/eslint": "^1.32.0",
+    "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.3",
     "@types/node-fetch": "^2.5.12",
+    "dtslint": "^4.2.1",
     "husky": "^7.0.4",
     "lock-verify": "^2.2.1",
+    "mocha": "^9.1.3",
+    "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   },
   "keywords": [],

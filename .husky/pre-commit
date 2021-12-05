@@ -4,3 +4,5 @@
 npm run lock-verify
 npm run ts:noWatch
 npm run lint:check -- --max-warnings 0
+npm t
+npm run dtslint
