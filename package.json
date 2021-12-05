@@ -10,9 +10,7 @@
     "ts-compile": "tsc --declaration",
     "my-compile": "node ../compile.js",
     "build": "lock-verify && npm run build:clean && npm run ts-compile && npm run my-compile",
-    "publish:prepare": "mkdir -p ./build/build && mv ./build/* ./build/build; cp ./package* README.md ./build",
-    "pu": "npm pu ./build && git p && git pt",
-    "my-publish": "npm run publish:prepare && npm run pu"
+    "pu": "npm pu && git p && git pt"
   },
   "dependencies": {
     "node-fetch": "^2.6.2"
