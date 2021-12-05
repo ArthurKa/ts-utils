@@ -1,6 +1,6 @@
 {
   "name": "@arthurka/ts-utils",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "Some convenient TS utilities.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
