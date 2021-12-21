@@ -15,6 +15,7 @@ export function ObjValues<T>(obj: T): T[keyof T][] {
 }
 
 export type ValueOf<T> = T[keyof T];
+export type KeyOfUnion<T> = T extends T ? keyof T : never;
 
 export const twoDigitsMin = (value: string | number) => (
   `00${value}`.slice(-Math.max(2, String(value).length))
