@@ -29,7 +29,7 @@ type MyNode = (
 );
 // #endregion
 
-interface StructNode<T extends MyNode, U extends string> {
+export interface StructNode<T extends MyNode, U extends string> {
   _: Exclude<T, SimpleNode['_']>['_'];
   _path: `${U}.${Exclude<T, SimpleNode['_']>['_']}`;
 }
