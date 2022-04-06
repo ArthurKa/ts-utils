@@ -90,3 +90,8 @@ export type ExactShape<T, Shape> = (
 export const checkExactShape = <Shape>() => <T>(_e: ExactShape<T, Shape>) => {};
 
 export * from './makeUnderLangPropsCreator';
+
+export type NonExactOptional<T> = (
+  & { [K in keyof T as undefined extends T[K] ? never : K]: T[K] }
+  & { [K in keyof T as undefined extends T[K] ? K : never]: T[K] | undefined }
+);
