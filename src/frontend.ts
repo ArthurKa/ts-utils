@@ -9,7 +9,19 @@ export function ObjEntries<T>(obj: T): Entries<T> {
   return Object.entries(obj) as any;
 }
 
-export function ObjKeys<T>(obj: T): (keyof T)[] {
+export function ObjKeys<T>(obj: T): (
+  /* eslint-disable @typescript-eslint/indent */ // eslint-disable-line @typescript-eslint/indent
+  T extends null | undefined
+    ? never
+    : undefined extends T[keyof T]
+      ? ReturnType<typeof Object.keys>
+      : keyof T extends string | symbol
+        ? T extends Record<string, unknown>
+          ?Array<keyof T>
+          : ReturnType<typeof Object.keys>
+        : ReturnType<typeof Object.keys>
+  /* eslint-enable @typescript-eslint/indent */
+) {
   return Object.keys(obj) as any;
 }
 
