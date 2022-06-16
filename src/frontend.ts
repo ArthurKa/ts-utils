@@ -107,3 +107,5 @@ export type NonExactOptional<T> = (
   & { [K in keyof T as undefined extends T[K] ? never : K]: T[K] }
   & { [K in keyof T as undefined extends T[K] ? K : never]: T[K] | undefined }
 );
+
+export const isTruthy = <T extends unknown>(e: T): e is Exclude<T, 0 | 0n | '' | false | null | undefined | HTMLAllCollection> => Boolean(e);
