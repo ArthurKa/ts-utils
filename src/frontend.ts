@@ -109,5 +109,3 @@ export type NonExactOptional<T> = (
 );
 
 export const isTruthy = <T extends unknown>(e: T): e is Exclude<T, 0 | 0n | '' | false | null | undefined | HTMLAllCollection> => Boolean(e);
-
-export type KeysOfUnion<T extends Record<string, any>, K extends keyof T> = ValueOf<{ [key in T[K]]: keyof Extract<T, { [k in K]: key }> }>;
