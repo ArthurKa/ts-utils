@@ -1,10 +1,9 @@
-type Entries<T> = {
-  [K in keyof T]: [K, T[K]];
-}[keyof T][];
-
 export type ValueOf<T> = T[keyof T];
 export type KeyOfUnion<T> = T extends T ? keyof T : never;
 
+type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
 export function ObjEntries<T>(obj: T): Entries<T> {
   return Object.entries(obj) as any;
 }
@@ -17,7 +16,7 @@ export function ObjKeys<T>(obj: T): (
       ? ReturnType<typeof Object.keys>
       : keyof T extends string | symbol
         ? T extends Record<string, unknown>
-          ?Array<keyof T>
+          ? Array<keyof T>
           : ReturnType<typeof Object.keys>
         : ReturnType<typeof Object.keys>
   /* eslint-enable @typescript-eslint/indent */
@@ -28,7 +27,6 @@ export function ObjKeys<T>(obj: T): (
 export function ObjValues<T>(obj: T): ValueOf<T>[] {
   return Object.values(obj) as any;
 }
-
 
 export const twoDigitsMin = (value: string | number) => (
   `00${value}`.slice(-Math.max(2, String(value).length))
@@ -65,7 +63,6 @@ export function getRandom(max: number): number;
 export function getRandom(from: number, to: number): number;
 export function getRandom(str: string): string;
 export function getRandom<T>(arr: T[]): T;
-
 export function getRandom(a: any, b?: any) {
   return Array.isArray(a) || typeof a === 'string'
     ? a[getRandom(a.length)]
@@ -76,8 +73,7 @@ export function getRandom(a: any, b?: any) {
 
 export type ThenArg<T> = T extends PromiseLike<infer U> ? ThenArg<U> : T;
 
-type TypeWithGeneric<T> = T[];
-export type ExtractGeneric<T> = T extends TypeWithGeneric<infer U> ? U : never;
+export type ExtractGeneric<T> = T extends Array<infer U> ? U : never;
 
 export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> ? [U, M, A] : never;
 
