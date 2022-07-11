@@ -107,3 +107,33 @@ export type NonExactOptional<T> = (
 export const isTruthy = <T extends unknown>(e: T): e is Exclude<T, 0 | 0n | '' | false | null | undefined | HTMLAllCollection> => Boolean(e);
 
 export type Optional<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;
+
+/* eslint-disable camelcase */
+type RearrangeBranded<T extends { x__NOT_FOR_USE__witness: unknown }> = T['x__NOT_FOR_USE__witness'] & {
+  [k in Exclude<keyof T, keyof NonNullable<T['x__NOT_FOR_USE__witness']>> as unknown extends T[k] ? never : k]: T[k];
+};
+export type Branded<T extends unknown, U extends string> = RearrangeBranded<T & (
+  T extends { x__NOT_FOR_USE__brand9: unknown }
+    ? { x__NOT_FOR_USE__brand10: U }
+    : T extends { x__NOT_FOR_USE__brand8: unknown }
+      ? { x__NOT_FOR_USE__brand9: U }
+      : T extends { x__NOT_FOR_USE__brand7: unknown }
+        ? { x__NOT_FOR_USE__brand8: U }
+        : T extends { x__NOT_FOR_USE__brand6: unknown }
+          ? { x__NOT_FOR_USE__brand7: U }
+          : T extends { x__NOT_FOR_USE__brand5: unknown }
+            ? { x__NOT_FOR_USE__brand6: U }
+            : T extends { x__NOT_FOR_USE__brand4: unknown }
+              ? { x__NOT_FOR_USE__brand5: U }
+              : T extends { x__NOT_FOR_USE__brand3: unknown }
+                ? { x__NOT_FOR_USE__brand4: U }
+                : T extends { x__NOT_FOR_USE__brand2: unknown }
+                  ? { x__NOT_FOR_USE__brand3: U }
+                  : T extends { x__NOT_FOR_USE__brand: unknown }
+                    ? { x__NOT_FOR_USE__brand2: U }
+                    : {
+                      x__NOT_FOR_USE__witness: T;
+                      x__NOT_FOR_USE__brand: U;
+                    }
+)>;
+/* eslint-enable camelcase */
