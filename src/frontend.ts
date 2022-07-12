@@ -137,3 +137,5 @@ export type Branded<T extends unknown, U extends string> = RearrangeBranded<T & 
                     }
 )>;
 /* eslint-enable camelcase */
+
+export type Brand<T extends unknown, U extends string> = Branded<T, U>;
