@@ -1,13 +1,13 @@
-export declare const BRAND: unique symbol;
-export declare const BRAND2: unique symbol;
-export declare const BRAND3: unique symbol;
-export declare const BRAND4: unique symbol;
-export declare const BRAND5: unique symbol;
-export declare const BRAND6: unique symbol;
-export declare const BRAND7: unique symbol;
-export declare const BRAND8: unique symbol;
-export declare const BRAND9: unique symbol;
-export declare const BRAND10: unique symbol;
+declare const BRAND: unique symbol;
+declare const BRAND2: unique symbol;
+declare const BRAND3: unique symbol;
+declare const BRAND4: unique symbol;
+declare const BRAND5: unique symbol;
+declare const BRAND6: unique symbol;
+declare const BRAND7: unique symbol;
+declare const BRAND8: unique symbol;
+declare const BRAND9: unique symbol;
+declare const BRAND10: unique symbol;
 
 export declare const WITNESS: unique symbol;
 export type WITNESS = typeof WITNESS;
