@@ -79,6 +79,8 @@ export type ThenArg<T> = T extends PromiseLike<infer U> ? ThenArg<U> : T;
 
 export type ExtractGeneric<T> = T extends Array<infer U> ? U : never;
 
+export type ExtractSet<T> = T extends Set<infer U> ? U : never;
+
 export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> ? [U, M, A] : never;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
