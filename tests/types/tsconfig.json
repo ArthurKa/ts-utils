@@ -16,8 +16,8 @@
   },
   "files": [
     "index.d.ts",
-    "ObjKeys.ts",
     "isTruthy.ts",
+    "ObjFromEntries.ts",
     "makeUnderLangProps.ts"
   ]
 }

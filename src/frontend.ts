@@ -8,6 +8,10 @@ export function ObjEntries<T>(obj: T): Entries<T> {
   return Object.entries(obj) as any;
 }
 
+export function ObjFromEntries<T, U extends PropertyKey>(entries: Array<[U, T]>): Record<U, T> {
+  return Object.fromEntries(entries) as any;
+}
+
 export function ObjKeys<T>(obj: T): (
   /* eslint-disable @typescript-eslint/indent */ // eslint-disable-line @typescript-eslint/indent
   T extends null | undefined
