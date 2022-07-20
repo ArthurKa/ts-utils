@@ -55,6 +55,6 @@ declare const ba: BA;
 
 withAB(ba);
 
-// Check WITNESS type
+// WITNESS type
 // $ExpectType number
 type N = BA[WITNESS];

@@ -1,3 +1,5 @@
+import type { ExtractGeneric } from '.';
+
 declare const BRANDS: unique symbol;
 type BRANDS = typeof BRANDS;
 
@@ -11,12 +13,12 @@ type RearrangeKeysAndUseWitness<T extends { [WITNESS]: unknown; [BRANDS]: unknow
   };
 };
 
-export type Branded<T extends unknown, U extends string> = RearrangeKeysAndUseWitness<{
+export type Branded<T extends unknown, U extends string | [string, string, ...string[]]> = RearrangeKeysAndUseWitness<{
   [WITNESS]: T extends { [WITNESS]: unknown } ? T[WITNESS] : T;
   [BRANDS]: (
     T extends { [BRANDS]: unknown }
-      ? T[BRANDS] & { [k in U]: true }
-      : { [k in U]: true }
+      ? T[BRANDS] & { [k in U extends Array<unknown> ? ExtractGeneric<U>: U]: true }
+      : { [k in U extends Array<unknown> ? ExtractGeneric<U>: U]: true }
   );
 }>;
 
