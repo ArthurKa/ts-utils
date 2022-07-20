@@ -18,6 +18,7 @@
     "index.d.ts",
     "isTruthy.ts",
     "ObjFromEntries.ts",
+    "Branded.ts",
     "makeUnderLangProps.ts"
   ]
 }
