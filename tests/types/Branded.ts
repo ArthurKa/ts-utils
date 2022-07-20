@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 
-import { Branded } from 'build';
+import { Branded, WITNESS } from 'build';
 
 // Regular branding
 type Integer = Branded<number, 'Integer'>;
@@ -54,3 +54,7 @@ declare function withAB(e: AB): void;
 declare const ba: BA;
 
 withAB(ba);
+
+// Check WITNESS type
+// $ExpectType number
+type N = BA[WITNESS];
