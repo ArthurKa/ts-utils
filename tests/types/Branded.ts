@@ -58,3 +58,17 @@ withAB(ba);
 // WITNESS type
 // $ExpectType number
 type N = BA[WITNESS];
+
+// Arrays of strings
+type Ab = Branded<number, ['A', 'b']>;
+type C = Branded<number, 'C'>;
+type CAD = Branded<C, ['A', 'D']>;
+type AbS = Branded<Ab, 'S'>;
+type AbSqW = Branded<AbS, ['q', 'W']>;
+type AbSqW222 = Branded<AbSqW, ['1', 'a']>;
+
+// Mixed with other brands
+type stringCAD = Branded<string, CAD>;
+type AbCD = Branded<Ab, CAD>;
+type AbCDbS = Branded<Ab, [CAD, AbS]>;
+type AbWCDbS = Branded<Ab, ['W', CAD, AbS]>;
