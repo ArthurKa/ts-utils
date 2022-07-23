@@ -1,10 +1,19 @@
-export type ValueOf<T> = T[keyof T];
+type KeyOfMap<T extends Map<unknown, unknown>> = T extends Map<infer U, unknown> ? U : never;
+export type KeyOf<T> = T extends Map<any, any> ? KeyOfMap<T> : keyof T;
+
+export type ValueOf<T> = T extends Map<unknown, infer U> ? U: T[keyof T];
+
+export type Entries<T> = {
+  [K in KeyOf<T>]: T extends Map<unknown, infer U> ? [K, U] : [K, T[K]];
+}[KeyOf<T>][];
+
 export type KeyOfUnion<T> = T extends T ? keyof T : never;
 
-type Entries<T> = {
-  [K in keyof T]: [K, T[K]];
-}[keyof T][];
 export function ObjEntries<T>(obj: T): Entries<T> {
+  if(obj instanceof Map) {
+    return [...obj.entries()] as any;
+  }
+
   return Object.entries(obj) as any;
 }
 
@@ -16,19 +25,29 @@ export function ObjKeys<T>(obj: T): (
   /* eslint-disable @typescript-eslint/indent */ // eslint-disable-line @typescript-eslint/indent
   T extends null | undefined
     ? never
-    : undefined extends T[keyof T]
+    : undefined extends ValueOf<T>
       ? ReturnType<typeof Object.keys>
       : keyof T extends string | symbol
         ? T extends Record<string, unknown>
           ? Array<keyof T>
-          : ReturnType<typeof Object.keys>
+          : T extends Map<unknown, unknown>
+            ? KeyOf<T>[]
+            : ReturnType<typeof Object.keys>
         : ReturnType<typeof Object.keys>
   /* eslint-enable @typescript-eslint/indent */
 ) {
+  if(obj instanceof Map) {
+    return [...obj.keys()] as any;
+  }
+
   return Object.keys(obj) as any;
 }
 
 export function ObjValues<T>(obj: T): ValueOf<T>[] {
+  if(obj instanceof Map) {
+    return [...obj.values()];
+  }
+
   return Object.values(obj) as any;
 }
 
