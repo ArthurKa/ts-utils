@@ -115,3 +115,5 @@ export const isTruthy = <T extends unknown>(e: T): e is Exclude<T, 0 | 0n | '' |
 export type Optional<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;
 
 export * from './branded';
+
+export const typeOf = (e: unknown): string => ({}).toString.call(e).slice(8, -1);
