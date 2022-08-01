@@ -12,7 +12,7 @@
     "lint:fix": "npm run lint:check -- --fix",
     "ts-compile": "tsc --declaration",
     "my-compile": "node ../compile.js",
-    "build": "npm run build:clean && npm run ts-compile && npm run my-compile",
+    "build": "npm run build:clean && npm run ts-compile && node src/helpers/addTsExpectError.js && npm run my-compile",
     "pu": "npm pu && git p && git pt",
     "lock-verify": "lock-verify",
     "test": "mocha -r ts-node/register tests/**/*-test.ts",
@@ -20,7 +20,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "node-fetch": "^2.6.2"
+    "node-fetch": "^2.6.2",
+    "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
     "@arthurka/eslint": "^1.32.0",

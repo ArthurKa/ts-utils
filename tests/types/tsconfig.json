@@ -12,6 +12,7 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "baseUrl": "../..",
+    "noUncheckedIndexedAccess": true,
     "esModuleInterop": true
   },
   "files": [
@@ -20,6 +21,7 @@
     "ObjFromEntries.ts",
     "MapUtilities.ts",
     "Branded.ts",
+    "isArrayLength.ts",
     "makeUnderLangProps.ts"
   ]
 }

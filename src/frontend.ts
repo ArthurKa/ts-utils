@@ -136,3 +136,14 @@ export type Optional<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;
 export * from './branded';
 
 export const typeOf = (e: unknown): string => ({}).toString.call(e).slice(8, -1);
+
+export type IsNegative<T extends number> = `${T}` extends `-${string}` ? true : false;
+export type IsPositive<T extends number> = (
+  T extends 0
+    ? false
+    : `${T}` extends `-${string}`
+      ? false
+      : true
+);
+
+export * from './isArrayLength';
