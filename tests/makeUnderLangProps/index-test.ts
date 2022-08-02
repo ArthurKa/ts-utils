@@ -1,11 +1,11 @@
 import assert from 'assert';
-import { makeUnderLangPropsCreator } from '..';
+import { makeUnderLangPropsCreator } from '../../build';
 import {
   byString,
   byEmptyObject,
   LANG,
   byFulfilledObjectMixedKeysDeepLvl,
-} from './makeUnderLangPropsConstants';
+} from './constants';
 
 const makeUnderLangProps = makeUnderLangPropsCreator(LANG);
 
