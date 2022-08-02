@@ -9,7 +9,7 @@ import {
 
 const makeUnderLangProps = makeUnderLangPropsCreator(LANG);
 
-describe('Workflow', () => {
+describe('makeUnderLangPropsCreator:', () => {
   it('by string', () => {
     const underLangProps = {
       asd: makeUnderLangProps(byString),
