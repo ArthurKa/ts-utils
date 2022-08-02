@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 
 import { Number } from 'ts-toolbelt';
-import type { IsNegative, IsPositive } from './frontend';
+import type { IsNegative, IsPositive } from '.';
 
 type MAX_DEPTH = 50;
 
