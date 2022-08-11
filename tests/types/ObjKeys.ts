@@ -33,7 +33,7 @@ declare let ann: any;
 // $ExpectType string[]
 ObjKeys(ann);
 
-// $ExpectError
+// @ts-expect-error
 ObjKeys();
 // $ExpectType never
 ObjKeys(null);
@@ -42,5 +42,5 @@ ObjKeys(undefined);
 
 // $ExpectType "ad"[]
 ObjKeys({ ad: 2 });
-// $ExpectType ("c" | "asd" | "qwerty")[]
-ObjKeys({ qwerty: 1, asd: 2, c: 3 });
+// $ExpectType ("a" | "b" | "c")[]
+ObjKeys({ a: 1, b: 2, c: 3 });

@@ -23,24 +23,24 @@ withInteger(natural);
 withInteger(naturalLess10);
 withInteger(naturalLess10Not3);
 
-// $ExpectError
+// @ts-expect-error
 withNatural(integer);
 withNatural(natural);
 withNatural(naturalLess10);
 withNatural(naturalLess10Not3);
 
-// $ExpectError
+// @ts-expect-error
 withNaturalLess10(integer);
-// $ExpectError
+// @ts-expect-error
 withNaturalLess10(natural);
 withNaturalLess10(naturalLess10);
 withNaturalLess10(naturalLess10Not3);
 
-// $ExpectError
+// @ts-expect-error
 withNaturalLess10Not3(integer);
-// $ExpectError
+// @ts-expect-error
 withNaturalLess10Not3(natural);
-// $ExpectError
+// @ts-expect-error
 withNaturalLess10Not3(naturalLess10);
 withNaturalLess10Not3(naturalLess10Not3);
 

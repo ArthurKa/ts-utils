@@ -405,7 +405,7 @@ function testMore() {
   }
 }
 function testLess() {
-  const arr: Array<2 | 3> = [];
+  const arr: number[] = [];
   const op: Parameters<typeof isArrayLength>[1] = '<';
 
   // @ts-expect-error
@@ -431,38 +431,38 @@ function testLess() {
     arr;
   }
   if (isArrayLength(arr, op, 2)) {
-    // $ExpectType [] | [2 | 3]
+    // $ExpectType [] | [number]
     arr;
   }
   if (isArrayLength(arr, op, 3)) {
-    // $ExpectType [] | [2 | 3] | [2 | 3, 2 | 3]
+    // $ExpectType [] | [number] | [number, number]
     arr;
-    // $ExpectType 0 | 2 | 1
+    // $ExpectType 0 | 1 | 2
     arr.length;
-    // $ExpectType 2 | 3 | undefined
+    // $ExpectType number | undefined
     arr[1];
     // @ts-expect-error
     // $ExpectType undefined
     arr[2];
   }
   if (isArrayLength(arr, op, 51)) {
-    // $ExpectType (2 | 3)[]
+    // $ExpectType number[]
     arr;
   }
   if (isArrayLength(arr, op, 90)) {
-    // $ExpectType (2 | 3)[]
+    // $ExpectType number[]
     arr;
   }
   if (isArrayLength(arr, op, 100)) {
-    // $ExpectType (2 | 3)[]
+    // $ExpectType number[]
     arr;
   }
   if (isArrayLength(arr, op, 101)) {
-    // $ExpectType (2 | 3)[]
+    // $ExpectType number[]
     arr;
   }
   if (isArrayLength(arr, op, 100500)) {
-    // $ExpectType (2 | 3)[]
+    // $ExpectType number[]
     arr;
   }
 
@@ -789,7 +789,7 @@ function testLess() {
 
   const n = 3 as number;
   if (isArrayLength(arr, op, n)) {
-    // $ExpectType (2 | 3)[]
+    // $ExpectType number[]
     arr;
   }
 }
@@ -1216,7 +1216,7 @@ function testLessOrEqual() {
   if (isArrayLength(arr, op, 3)) {
     // $ExpectType [] | [null] | [null, null] | [null, null, null]
     arr;
-    // $ExpectType 0 | 2 | 1 | 3
+    // $ExpectType 0 | 3 | 1 | 2
     arr.length;
     // $ExpectType null | undefined
     arr[1];

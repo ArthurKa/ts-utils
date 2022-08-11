@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/no-unresolved */
 
 import { Entries, KeyOf, ObjEntries, ObjKeys, ObjValues, ValueOf } from 'build';
 
-type A = Map<'asd' | 'sdf', 2 | 3 | 4>;
-type B = Record<'asd' | 'sdf', 2 | 3 | 4>;
+type A = Map<'asd' | 'sdf', number>;
+type B = Record<'asd' | 'sdf', number>;
 declare const a: A;
 declare const b: B;
 
@@ -12,9 +13,9 @@ const aKeys = ObjKeys(a);
 // $ExpectType ("asd" | "sdf")[]
 const bKeys = ObjKeys(b);
 
-// $ExpectType (2 | 3 | 4)[]
+// $ExpectType number[]
 const aValues = ObjValues(a);
-// $ExpectType (2 | 3 | 4)[]
+// $ExpectType number[]
 const bValues = ObjValues(b);
 
 // $ExpectType Entries<A>
@@ -27,12 +28,12 @@ type KA = KeyOf<A>;
 // $ExpectType "asd" | "sdf"
 type KB = KeyOf<B>;
 
-// $ExpectType 2 | 3 | 4
+// $ExpectType number
 type VA = ValueOf<A>;
-// $ExpectType 2 | 3 | 4
+// $ExpectType number
 type VB = ValueOf<B>;
 
-// $ExpectType ["asd", 2 | 3 | 4] | ["sdf", 2 | 3 | 4]
+// $ExpectType ["asd", number] | ["sdf", number]
 type EA = Entries<A>[number];
-// $ExpectType ["asd", 2 | 3 | 4] | ["sdf", 2 | 3 | 4]
+// $ExpectType ["asd", number] | ["sdf", number]
 type EB = Entries<B>[number];

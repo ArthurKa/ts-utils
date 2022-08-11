@@ -16,13 +16,13 @@
     "esModuleInterop": true
   },
   "files": [
-    "index.d.ts",
-    "isTruthy.ts",
-    "ObjKeys.ts",
-    "ObjFromEntries.ts",
-    "MapUtilities.ts",
     "Branded.ts",
+    "index.d.ts",
     "isArrayLength.ts",
-    "makeUnderLangProps.ts"
+    "isTruthy.ts",
+    "makeUnderLangProps.ts",
+    "MapUtilities.ts",
+    "ObjFromEntries.ts",
+    "ObjKeys.ts"
   ]
 }

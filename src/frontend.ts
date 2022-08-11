@@ -103,7 +103,7 @@ export type ExtractSet<T> = T extends Set<infer U> ? U : never;
 export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> ? [U, M, A] : never;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export type GuardedType<T> = T extends (x: any) => x is infer T ? T : never;
+export type GuardedType<T> = T extends (e: any) => e is infer T ? T : never;
 
 export const wait = (seconds: number) => new Promise<void>(res => setTimeout(res, seconds * 1000));
 
@@ -120,7 +120,7 @@ export type ExactShape<T, Shape> = (
 );
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const checkExactShape = <Shape>() => <T>(_e: ExactShape<T, Shape>) => {};
+export const checkExactShape = <TShape>() => <T>(_e: ExactShape<T, TShape>) => {};
 
 export * from './makeUnderLangPropsCreator';
 
