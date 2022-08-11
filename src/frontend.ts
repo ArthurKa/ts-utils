@@ -22,7 +22,6 @@ export function ObjFromEntries<T, U extends PropertyKey>(entries: Array<[U, T]>)
 }
 
 export function ObjKeys<T>(obj: T): (
-  /* eslint-disable @typescript-eslint/indent */ // eslint-disable-line @typescript-eslint/indent
   T extends null | undefined
     ? never
     : undefined extends ValueOf<T>
@@ -34,7 +33,6 @@ export function ObjKeys<T>(obj: T): (
             ? KeyOf<T>[]
             : ReturnType<typeof Object.keys>
         : ReturnType<typeof Object.keys>
-  /* eslint-enable @typescript-eslint/indent */
 ) {
   if(obj instanceof Map) {
     return [...obj.keys()] as any;
