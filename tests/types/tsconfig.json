@@ -18,6 +18,7 @@
   "files": [
     "index.d.ts",
     "isTruthy.ts",
+    "ObjKeys.ts",
     "ObjFromEntries.ts",
     "MapUtilities.ts",
     "Branded.ts",
