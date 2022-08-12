@@ -40,12 +40,12 @@ type IsBadParamForObjKeys<T> = (
 export function ObjKeys<T extends IsBadParamForObjKeys<T> extends true ? never : unknown>(obj: T): (
   IsAnyOrUnknown<T> extends true
     ? ReturnType<typeof Object.keys>
-    : T extends Record<string, unknown>
-      ? Array<keyof {
-        [K in KeyOf<T> as `${K}`]: true;
-      }>
-      : T extends Map<unknown, unknown>
-        ? KeyOf<T>[]
+    : T extends Map<unknown, unknown>
+      ? KeyOf<T>[]
+      : T extends Record<string, any>
+        ? Array<keyof {
+          [K in KeyOf<T> as `${K}`]: true;
+        }>
         : ReturnType<typeof Object.keys>
 ) {
   if(obj instanceof Map) {

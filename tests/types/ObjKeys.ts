@@ -52,3 +52,16 @@ ObjKeys({ a: 1, b: 2, c: 3 });
 
 // $ExpectType string[]
 ObjKeys(undefined as any as 1 | 2);
+interface User {
+  id: string;
+  name?: string;
+}
+declare const user: User;
+// $ExpectType (keyof User)[]
+ObjKeys(user);
+
+// $ExpectType (2 | "1")[]
+ObjKeys(123 as unknown as Map<'1' | 2, string>);
+
+// $ExpectType (1 | "2")[]
+ObjKeys(new Map<1 | '2', number>([[1, 2], ['2', 2]]));
