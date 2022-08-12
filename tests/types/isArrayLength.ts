@@ -1216,7 +1216,7 @@ function testLessOrEqual() {
   if (isArrayLength(arr, op, 3)) {
     // $ExpectType [] | [null] | [null, null] | [null, null, null]
     arr;
-    // $ExpectType 0 | 3 | 1 | 2
+    // $ExpectType 0 | 1 | 2 | 3
     arr.length;
     // $ExpectType null | undefined
     arr[1];

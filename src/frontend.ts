@@ -23,24 +23,36 @@ export function ObjFromEntries<T, U extends PropertyKey>(entries: Array<[U, T]>)
   return Object.fromEntries(entries) as any;
 }
 
-export function ObjKeys<T>(obj: T): (
-  T extends null | undefined
-    ? never
-    : undefined extends ValueOf<T>
-      ? ReturnType<typeof Object.keys>
-      : keyof T extends string | symbol
-        ? T extends Record<string, unknown>
-          ? Array<keyof T>
-          : T extends Map<unknown, unknown>
-            ? KeyOf<T>[]
-            : ReturnType<typeof Object.keys>
+type IsNotRecordOrUnknown<T> = (
+  T extends Record<string, unknown>
+    ? false
+    : unknown extends T
+      ? false
+      : true
+);
+type IsBadParamForObjKeys<T> = (
+  null extends T
+    ? IsNotRecordOrUnknown<T>
+    : undefined extends T
+      ? IsNotRecordOrUnknown<T>
+      : false
+);
+export function ObjKeys<T extends IsBadParamForObjKeys<T> extends true ? never : unknown>(obj: T): (
+  IsAnyOrUnknown<T> extends true
+    ? ReturnType<typeof Object.keys>
+    : T extends Record<string, unknown>
+      ? Array<keyof {
+        [K in KeyOf<T> as `${K}`]: true;
+      }>
+      : T extends Map<unknown, unknown>
+        ? KeyOf<T>[]
         : ReturnType<typeof Object.keys>
 ) {
   if(obj instanceof Map) {
     return [...obj.keys()] as any;
   }
 
-  return Object.keys(obj) as any;
+  return Object.keys(obj as any) as any;
 }
 
 export function ObjValues<T>(obj: T): ValueOf<T>[] {

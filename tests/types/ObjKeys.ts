@@ -4,15 +4,15 @@ import { ObjKeys } from 'build';
 
 // $ExpectType string[]
 ObjKeys(2);
-// $ExpectType string[]
+// $ExpectType ("33" | "ad")[]
 ObjKeys({ ad: 2, 33: 3 });
 // $ExpectType string[]
 ObjKeys(['a', 'b', 'c']);
-// $ExpectType string[]
-ObjKeys({ 0: 'a', 1: 'b', 2: 'c' });
-// $ExpectType string[]
+// $ExpectType ("0" | "1")[]
+ObjKeys({ 0: 'a', 1: 'b' });
+// $ExpectType ("0" | "1" | "a")[]
 ObjKeys({ 0: 'a', 1: 'b', a: 'c' });
-// $ExpectType string[]
+// $ExpectType ("2" | "7" | "100")[]
 ObjKeys({ 100: 'a', 2: 'b', 7: 'c' });
 // $ExpectType string[]
 ObjKeys(true);
@@ -26,21 +26,29 @@ ObjKeys(true);
 ObjKeys(false);
 
 const a: { a?: 2 } = {};
-// $ExpectType string[]
+// $ExpectType "a"[]
 ObjKeys(a);
 
-declare let ann: any;
 // $ExpectType string[]
-ObjKeys(ann);
+ObjKeys('ann' as any);
+// $ExpectType string[]
+ObjKeys('ann' as unknown);
 
 // @ts-expect-error
 ObjKeys();
-// $ExpectType never
+// @ts-expect-error
 ObjKeys(null);
-// $ExpectType never
+// @ts-expect-error
 ObjKeys(undefined);
+// @ts-expect-error
+ObjKeys(null as null | 2);
+// @ts-expect-error
+ObjKeys(undefined as undefined | 2);
 
 // $ExpectType "ad"[]
 ObjKeys({ ad: 2 });
 // $ExpectType ("a" | "b" | "c")[]
 ObjKeys({ a: 1, b: 2, c: 3 });
+
+// $ExpectType string[]
+ObjKeys(undefined as any as 1 | 2);
