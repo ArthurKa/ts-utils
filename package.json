@@ -16,7 +16,7 @@
     "pu": "npm pu && git p && git pt",
     "lock-verify": "lock-verify",
     "test": "mocha -r ts-node/register tests/**/*-test.ts",
-    "dtslint": "dtslint tests/types",
+    "dtslint": "dtslint tests/types && dtslint tests/types_NoNExactOptionalPropertyTypes",
     "prepare": "husky install"
   },
   "dependencies": {

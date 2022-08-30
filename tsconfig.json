@@ -70,6 +70,7 @@
 
     "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
+    "exactOptionalPropertyTypes": true,
   },
   "include": ["src"],
 }

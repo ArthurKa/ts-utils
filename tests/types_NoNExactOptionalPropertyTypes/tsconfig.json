@@ -13,19 +13,10 @@
     "strictFunctionTypes": true,
     "baseUrl": "../..",
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
     "esModuleInterop": true
   },
   "files": [
-    "Branded.ts",
     "index.d.ts",
-    "IsAnyOrUnknown.ts",
-    "isArrayLength.ts",
-    "IsExactOptionalPropertyTypes.ts",
-    "isTruthy.ts",
-    "makeUnderLangProps.ts",
-    "MapUtilities.ts",
-    "ObjFromEntries.ts",
-    "ObjKeys.ts"
+    "IsExactOptionalPropertyTypes.ts"
   ]
 }
