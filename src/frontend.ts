@@ -6,6 +6,8 @@ export type KeyOf<T> = T extends Map<any, any> ? KeyOfMap<T> : keyof T;
 
 export type ValueOf<T> = T extends Map<unknown, infer U> ? U: T[keyof T];
 
+export type NonUndefined<T> = T extends undefined ? never : T;
+
 export type Entries<T> = {
   [K in KeyOf<T>]: T extends Map<unknown, infer U> ? [K, U] : [K, T[K]];
 }[KeyOf<T>][];
