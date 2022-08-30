@@ -16,6 +16,7 @@
     "esModuleInterop": true
   },
   "files": [
+    "Entries.ts",
     "index.d.ts",
     "IsExactOptionalPropertyTypes.ts"
   ]

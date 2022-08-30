@@ -437,7 +437,7 @@ function testLess() {
   if (isArrayLength(arr, op, 3)) {
     // $ExpectType [] | [number] | [number, number]
     arr;
-    // $ExpectType 0 | 1 | 2
+    // $ExpectType 0 | 2 | 1
     arr.length;
     // $ExpectType number | undefined
     arr[1];
@@ -1216,7 +1216,7 @@ function testLessOrEqual() {
   if (isArrayLength(arr, op, 3)) {
     // $ExpectType [] | [null] | [null, null] | [null, null, null]
     arr;
-    // $ExpectType 0 | 1 | 2 | 3
+    // $ExpectType 0 | 2 | 1 | 3
     arr.length;
     // $ExpectType null | undefined
     arr[1];

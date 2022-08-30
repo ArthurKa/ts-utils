@@ -9,7 +9,20 @@ export type ValueOf<T> = T extends Map<unknown, infer U> ? U: T[keyof T];
 export type NonUndefined<T> = T extends undefined ? never : T;
 
 export type Entries<T> = {
-  [K in KeyOf<T>]: T extends Map<unknown, infer U> ? [K, U] : [K, T[K]];
+  [K in KeyOf<T>]: (
+    T extends Map<unknown, infer U>
+      ? [K, U]
+      : [
+        K,
+        IsExactOptionalPropertyTypes extends false
+          ? T[K]
+          : T extends { [k in K]: unknown }
+            ? T[K]
+            : Required<T>[K] extends NonUndefined<T[K]>
+              ? NonUndefined<T[K]>
+              : T[K]
+      ]
+  );
 }[KeyOf<T>][];
 
 export type KeyOfUnion<T> = T extends T ? keyof T : never;
