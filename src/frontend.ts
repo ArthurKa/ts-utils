@@ -1,5 +1,6 @@
 export type IsAnyOrUnknown<T> = false extends (any extends T ? true : false) ? false : true;
 export type IsExactOptionalPropertyTypes = Required<{ e?: string | undefined }>['e'] extends string ? false : true;
+export type LoopOver<T> = { [K in keyof T]: T[K] };
 
 type KeyOfMap<T extends Map<unknown, unknown>> = T extends Map<infer U, unknown> ? U : never;
 export type KeyOf<T> = T extends Map<any, any> ? KeyOfMap<T> : keyof T;
