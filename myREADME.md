@@ -3,29 +3,30 @@
 ```ts
 import { checkExactShape, ExactShape } from '<pkg.name>';
 
-const tooFew = { first: 'Stefan' };
-const exact = { first: 'Stefan', last: 'asd' };
-const tooMany = { first: 'Stefan', last: 'asd', age: '37' };
+const tooFew = { name: 'Stefan' };
+const exact = { name: 'Stefan', age: '31' };
+const tooMany = { name: 'Stefan', age: '31', sex: 'male' };
 
 const record: Record<string, string> = {};
 type R = typeof record;
 type Exact = typeof exact;
 interface ExtendedRecord extends Exact, R {}
 const extendedRecord: ExtendedRecord = {
-  first: 'Stefan',
-  last: 'asd',
-  // asd: 'asd',
+  name: 'Stefan',
+  age: '31',
+  sex: 'male',
 };
 
 type Person = {
-  first: string;
-  last: string;
+  name: string;
+  age: string;
 };
 
 
-function savePerson<T>(person: ExactShape<T, Person>) {
+function savePerson<T extends Person>(e: ExactShape<Person, T>) {
 
 }
+
 savePerson(exact);
 // @ts-expect-error
 savePerson(tooFew);
@@ -37,14 +38,14 @@ savePerson(record);
 savePerson(extendedRecord);
 
 function getPerson(): Person {
-  const a = exact;
-  // const a = tooFew;
-  // const a = tooMany;
-  // const a = record;
-  // const a = extendedRecord;
+  const e = exact;
+  // const e = tooFew;
+  // const e = tooMany;
+  // const e = record;
+  // const e = extendedRecord;
 
-  checkExactShape<Person>()(a);
-  return a;
+  checkExactShape<Person>()(e);
+  return e;
 }
 
 const person = getPerson();
