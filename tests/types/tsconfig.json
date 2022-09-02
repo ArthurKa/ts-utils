@@ -19,6 +19,7 @@
   "files": [
     "Branded.ts",
     "Entries.ts",
+    "ExactShape.ts",
     "index.d.ts",
     "IsAnyOrUnknown.ts",
     "isArrayLength.ts",

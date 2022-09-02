@@ -136,20 +136,7 @@ export type GuardedType<T> = T extends (e: any) => e is infer T ? T : never;
 
 export const wait = (seconds: number) => new Promise<void>(res => setTimeout(res, seconds * 1000));
 
-class ExtraPropertiesError<T> {
-  private noExtraProperty!: T;
-}
-
-export type ExactShape<T, Shape> = (
-  T extends Shape
-    ? Exclude<keyof T, keyof Shape> extends never
-      ? T
-      : ExtraPropertiesError<Shape>
-    : Shape
-);
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const checkExactShape = <TShape>() => <T>(_e: ExactShape<T, TShape>) => {};
+export * from './ExactShape';
 
 export * from './makeUnderLangPropsCreator';
 

@@ -4,15 +4,23 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const filePath = path.resolve('build/isArrayLength.d.ts');
+/** @type {Array<[string, number]>} */
+const files = [
+  ['isArrayLength', -3],
+  ['ExactShape', 3],
+];
 
-const lines = (
-  fs
-    .readFileSync(filePath, 'utf-8')
-    .split('\n')
-);
-lines.splice(-3, 0, '// @ts-expect-error');
+files.forEach(([fileName, line]) => {
+  const filePath = path.resolve(`build/${fileName}.d.ts`);
 
-const result = lines.join('\n');
+  const lines = (
+    fs
+      .readFileSync(filePath, 'utf-8')
+      .split('\n')
+  );
+  lines.splice(line, 0, '// @ts-expect-error');
 
-fs.writeFileSync(filePath, result);
+  const result = lines.join('\n');
+
+  fs.writeFileSync(filePath, result);
+});

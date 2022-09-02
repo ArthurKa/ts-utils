@@ -10,7 +10,7 @@ ObjKeys({ ad: 2, 33: 3 });
 ObjKeys(['a', 'b', 'c']);
 // $ExpectType ("0" | "1")[]
 ObjKeys({ 0: 'a', 1: 'b' });
-// $ExpectType ("0" | "1" | "a")[]
+// $ExpectType ("a" | "0" | "1")[]
 ObjKeys({ 0: 'a', 1: 'b', a: 'c' });
 // $ExpectType ("2" | "7" | "100")[]
 ObjKeys({ 100: 'a', 2: 'b', 7: 'c' });
