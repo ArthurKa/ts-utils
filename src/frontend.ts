@@ -36,7 +36,7 @@ export function ObjEntries<T>(obj: T): Entries<T> {
   return Object.entries(obj) as any;
 }
 
-export function ObjFromEntries<T, U extends PropertyKey>(entries: Array<[U, T]>): Record<U, T> {
+export function ObjFromEntries<T, U extends PropertyKey>(entries: Array<readonly [U, T]>): Record<U, T> {
   return Object.fromEntries(entries) as any;
 }
 
