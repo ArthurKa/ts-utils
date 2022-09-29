@@ -27,6 +27,7 @@
     "isTruthy.ts",
     "makeUnderLangProps.ts",
     "MapUtilities.ts",
+    "MinTupleLength.ts",
     "ObjFromEntries.ts",
     "ObjKeys.ts"
   ]

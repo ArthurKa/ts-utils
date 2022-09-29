@@ -163,3 +163,5 @@ export type IsPositive<T extends number> = (
 );
 
 export * from './isArrayLength';
+
+export * from './MinTupleLength';
