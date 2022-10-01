@@ -28,7 +28,7 @@ type GetBrands<U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = {
   )]: true;
 };
 
-export type Branded<T extends unknown, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = RearrangeKeysAndUseWitness<{
+export type Branded<T, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = RearrangeKeysAndUseWitness<{
   [WITNESS]: T extends { [WITNESS]: unknown } ? T[WITNESS] : T;
   [BRANDS]: (
     T extends { [BRANDS]: unknown }
@@ -37,4 +37,4 @@ export type Branded<T extends unknown, U extends BRAND | [BRAND, BRAND, ...BRAND
   );
 }>;
 
-export type Brand<T extends unknown, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = Branded<T, U>;
+export type Brand<T, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = Branded<T, U>;
