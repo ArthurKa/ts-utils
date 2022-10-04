@@ -22,6 +22,7 @@
     "ExactShape.ts",
     "index.d.ts",
     "IsAnyOrUnknown.ts",
+    "IsBrand.ts",
     "isArrayLength.ts",
     "IsExactOptionalPropertyTypes.ts",
     "isTruthy.ts",

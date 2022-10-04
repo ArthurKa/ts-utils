@@ -1,4 +1,4 @@
-import type { ExtractGeneric, KeyOfUnion } from '.';
+import type { ExtractGeneric, KeyOfUnion, IsAnyOrUnknown } from '.';
 
 declare const BRANDS: unique symbol;
 type BRANDS = typeof BRANDS;
@@ -38,3 +38,11 @@ export type Branded<T, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = Rearrange
 }>;
 
 export type Brand<T, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = Branded<T, U>;
+
+export type IsBrand<T, U = unknown> = (
+  IsAnyOrUnknown<T> extends true
+    ? false
+    : T extends { [WITNESS]: U; [BRANDS]: Record<string, true> }
+      ? true
+      : false
+);
