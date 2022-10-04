@@ -1,4 +1,4 @@
-import type { ExtractGeneric, KeyOfUnion, IsAnyOrUnknown } from '.';
+import type { ExtractGeneric, IsAnyOrUnknown, KeyOfUnion } from '.';
 
 declare const BRANDS: unique symbol;
 type BRANDS = typeof BRANDS;
