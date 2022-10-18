@@ -31,6 +31,7 @@
     "MapUtilities.ts",
     "MinTupleLength.ts",
     "ObjFromEntries.ts",
-    "ObjKeys.ts"
+    "ObjKeys.ts",
+    "tuple.ts"
   ]
 }
