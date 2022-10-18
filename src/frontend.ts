@@ -165,3 +165,9 @@ export type IsPositive<T extends number> = (
 export * from './isArrayLength';
 
 export * from './MinTupleLength';
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Combine<T1 extends object, T2 extends object, TKeys extends keyof T2> = (
+  & Omit<T1, TKeys>
+  & Pick<T2, TKeys>
+);
