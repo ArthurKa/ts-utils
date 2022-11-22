@@ -54,7 +54,7 @@ type IsBadParamForObjKeys<T> = (
       ? IsNotRecordOrUnknown<T>
       : false
 );
-export function ObjKeys<T extends IsBadParamForObjKeys<T> extends true ? never : unknown>(obj: T): (
+export function ObjKeys<T extends true extends IsBadParamForObjKeys<T> ? never : unknown>(obj: T): (
   IsAnyOrUnknown<T> extends true
     ? ReturnType<typeof Object.keys>
     : T extends Map<unknown, unknown>

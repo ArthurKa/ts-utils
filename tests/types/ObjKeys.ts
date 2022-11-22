@@ -44,6 +44,10 @@ ObjKeys(undefined);
 ObjKeys(null as null | 2);
 // @ts-expect-error
 ObjKeys(undefined as undefined | 2);
+// @ts-expect-error
+ObjKeys(undefined as undefined | { a: 2 });
+// @ts-expect-error
+ObjKeys(null as null | { a: 2 });
 
 // $ExpectType "ad"[]
 ObjKeys({ ad: 2 });
