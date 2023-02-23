@@ -13,7 +13,6 @@ const arr1 = [
   null,
   undefined,
   '',
-  document.all,
 ] as const;
 
 // $ExpectType 2[]
@@ -26,7 +25,6 @@ const arr2 = [
   2,
   null,
   undefined,
-  document.all,
 ];
 
 // $ExpectType number[]

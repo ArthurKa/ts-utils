@@ -145,7 +145,7 @@ export type NonExactOptional<T> = (
   & { [K in keyof T as undefined extends T[K] ? K : never]: T[K] | undefined }
 );
 
-export const isTruthy = <T>(e: T): e is Exclude<T, 0 | 0n | '' | false | null | undefined | HTMLAllCollection> => Boolean(e);
+export const isTruthy = <T>(e: T): e is Exclude<T, 0 | 0n | '' | false | null | undefined> => Boolean(e);
 
 export type Optional<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;
 
