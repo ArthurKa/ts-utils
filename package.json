@@ -24,7 +24,7 @@
     "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
-    "@arthurka/eslint": "1.42.0",
+    "@arthurka/eslint": "3.14.0",
     "@type-challenges/utils": "^0.1.1",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.3",

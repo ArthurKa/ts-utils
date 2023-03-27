@@ -5,7 +5,7 @@ export type LoopOver<T> = { [K in keyof T]: T[K] };
 type KeyOfMap<T extends Map<unknown, unknown>> = T extends Map<infer U, unknown> ? U : never;
 export type KeyOf<T> = T extends Map<any, any> ? KeyOfMap<T> : keyof T;
 
-export type ValueOf<T> = T extends Map<unknown, infer U> ? U: T[keyof T];
+export type ValueOf<T> = T extends Map<unknown, infer U> ? U : T[keyof T];
 
 export type NonUndefined<T> = T extends undefined ? never : T;
 
@@ -21,7 +21,7 @@ export type Entries<T> = {
             ? T[K]
             : Required<T>[K] extends NonUndefined<T[K]>
               ? NonUndefined<T[K]>
-              : T[K]
+              : T[K],
       ]
   );
 }[KeyOf<T>][];
@@ -62,6 +62,7 @@ type IsBadParamForObjKeys<T> = (
       ? IsNotRecordOrUnknown<T>
       : false
 );
+/* eslint-disable @typescript-eslint/indent */
 export function ObjKeys<T extends true extends IsBadParamForObjKeys<T> ? never : unknown>(obj: T): (
   IsAnyOrUnknown<T> extends true
     ? ReturnType<typeof Object.keys>
@@ -72,6 +73,7 @@ export function ObjKeys<T extends true extends IsBadParamForObjKeys<T> ? never :
           [K in KeyOf<T> as `${K}`]: true;
         }>
         : ReturnType<typeof Object.keys>
+/* eslint-enable @typescript-eslint/indent */
 ) {
   if(obj instanceof Map) {
     return [...obj.keys()] as any;
@@ -142,7 +144,9 @@ export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type GuardedType<T> = T extends (e: any) => e is infer T ? T : never;
 
-export const wait = (seconds: number) => new Promise<void>(res => setTimeout(res, seconds * 1000));
+export const wait = (seconds: number) => new Promise<void>(res => {
+  setTimeout(res, seconds * 1000);
+});
 
 export * from './ExactShape';
 

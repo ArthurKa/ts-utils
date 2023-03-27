@@ -52,7 +52,7 @@ export const isArrayLength = <
           ? TArr['length']
           : never
         : TArr['length']
-  )
+  ),
 // @ts-expect-error
 >(arr: TArr, op: TOp, length: TLen): arr is (
   TOp extends '>'
