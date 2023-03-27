@@ -33,7 +33,7 @@ export function ObjEntries<T>(obj: T): Entries<T> {
     return [...obj.entries()] as any;
   }
 
-  return Object.entries(obj) as any;
+  return Object.entries(obj as any) as any;
 }
 
 export function ObjFromEntries<T, U extends PropertyKey>(entries: Array<readonly [U, T]>): Record<U, T> {
@@ -77,7 +77,7 @@ export function ObjValues<T>(obj: T): ValueOf<T>[] {
     return [...obj.values()];
   }
 
-  return Object.values(obj) as any;
+  return Object.values(obj as any) as any;
 }
 
 export const twoDigitsMin = (value: string | number) => (
