@@ -1,7 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run build
-npm run ts:noWatch
-npm run lint:check -- --max-warnings 0
-npm t
+if [[ `git diff @ --name-only | grep -E "^(src|tests)/"` != "" ]]; then
+  npm run build
+  npm run ts:noWatch
+  npm run lint:check -- --max-warnings 0
+  npm t
+fi
