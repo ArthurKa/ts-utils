@@ -26,7 +26,7 @@ export type Entries<T> = {
   );
 }[KeyOf<T>][];
 
-export type KeyOfUnion<T> = T extends T ? keyof T : never;
+export type KeyOfUnion<T> = T extends unknown ? keyof T : never;
 
 export type TheSame<T, U> = (
   T extends U

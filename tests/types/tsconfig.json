@@ -32,6 +32,7 @@
     "MinTupleLength.ts",
     "ObjFromEntries.ts",
     "ObjKeys.ts",
-    "tuple.ts"
+    "tuple.ts",
+    "Union.ts"
   ]
 }
