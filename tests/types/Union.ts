@@ -3,17 +3,17 @@ import { Equal, ExpectTrue } from '@type-challenges/utils';
 
 type A = Union<
   // ^?
-  | { a: 2; }
-  | { b: 2; }
+  | { a: 2 }
+  | { b: 2 }
 >;
-type True = ExpectTrue<Equal<A, { a: 2; b?: undefined; } | { b: 2; a?: undefined; }>>;
+type True = ExpectTrue<Equal<A, { a: 2; b?: undefined } | { b: 2; a?: undefined }>>;
 
 type B = Union<
-  & { a: number; }
+  & { a: number }
   & (
-    | { b: 1; c: string; }
-    | { b: 2; d: string; }
-    | { b: 3; d: string; e: number; }
+    | { b: 1; c: string }
+    | { b: 2; d: string }
+    | { b: 3; d: string; e: number }
   )
 >;
 declare const b: B;

@@ -8,7 +8,7 @@
     "build:clean": "rm -rf build/*",
     "ts:noWatch": "tsc --noEmit",
     "ts": "npm run ts:noWatch -- -w",
-    "lint:check": "eslint --ext js,jsx,ts,tsx src",
+    "lint:check": "eslint --ext js,jsx,ts,tsx src tests",
     "lint:fix": "npm run lint:check -- --fix",
     "ts-compile": "tsc --declaration",
     "my-compile": "node ../compile.js",

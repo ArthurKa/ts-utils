@@ -1,8 +1,7 @@
 // @ts-check
 'use strict';
 
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
+module.exports = ((/** @type {import('eslint').Linter.Config} */ e) => e)({
   extends: './node_modules/@arthurka/eslint',
   overrides: [
     {
@@ -17,11 +16,15 @@ module.exports = {
         }],
         'keyword-spacing': ['warn', {}],
         '@typescript-eslint/member-delimiter-style': ['warn', {
-          singleline: {
-            requireLast: true,
+          overrides: {
+            interface: {
+              singleline: {
+                requireLast: true,
+              },
+            },
           },
         }],
       },
     },
   ],
-};
+});

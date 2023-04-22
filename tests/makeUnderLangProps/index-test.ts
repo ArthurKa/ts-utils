@@ -1,10 +1,10 @@
 import assert from 'assert';
 import { makeUnderLangPropsCreator } from '../../build';
 import {
-  byString,
   byEmptyObject,
-  LANG,
   byFulfilledObjectMixedKeysDeepLvl,
+  byString,
+  LANG,
 } from './constants';
 
 const makeUnderLangProps = makeUnderLangPropsCreator(LANG);
