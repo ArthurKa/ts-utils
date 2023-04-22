@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { MinTupleLength } from 'build';
 
 // $ExpectType 0

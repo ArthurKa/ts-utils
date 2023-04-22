@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-expressions */
-/* eslint-disable import/no-unresolved */
-/* eslint keyword-spacing: warn */
 
 import { isArrayLength } from 'build';
 

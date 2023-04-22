@@ -1,7 +1,4 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { IsBrand, Brand } from 'build';
+import { Brand, IsBrand } from 'build';
 
 type BrandedString = Brand<string, ''>;
 

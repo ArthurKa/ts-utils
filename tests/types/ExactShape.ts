@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable import/no-unresolved */
-
-import { ExactShape, IsExactShape, Branded, LoopOver } from 'build';
+import { Branded, ExactShape, IsExactShape, LoopOver } from 'build';
 import { ExpectExtends } from '@type-challenges/utils';
 
 interface Int1 {

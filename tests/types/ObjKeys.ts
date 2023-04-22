@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-
 import { ObjKeys } from 'build';
 
 // $ExpectType string[]

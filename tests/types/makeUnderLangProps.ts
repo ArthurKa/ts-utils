@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-expressions */
 
 import { makeUnderLangPropsCreator } from 'build';

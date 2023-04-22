@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable import/no-unresolved */
-
 import { Entries } from 'build';
 
 // $ExpectType ["asd", 123 | undefined]

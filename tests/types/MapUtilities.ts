@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { Entries, KeyOf, ObjEntries, ObjKeys, ObjValues, ValueOf } from 'build';
 
 type A = Map<'asd' | 'sdf', number>;

@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-
 import { ObjEntries, ObjFromEntries } from 'build';
 
 // $ExpectType Record<"a", number>
