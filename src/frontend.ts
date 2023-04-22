@@ -28,6 +28,14 @@ export type Entries<T> = {
 
 export type KeyOfUnion<T> = T extends T ? keyof T : never;
 
+export type TheSame<T, U> = (
+  T extends U
+    ? U extends T
+      ? true
+      : false
+    : false
+);
+
 export function ObjEntries<T>(obj: T): Entries<T> {
   if(obj instanceof Map) {
     return [...obj.entries()] as any;
