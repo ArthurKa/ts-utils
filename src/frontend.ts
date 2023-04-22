@@ -185,3 +185,5 @@ export type Combine<T1 extends object, T2 extends object, TKeys extends keyof T2
 );
 
 export const tuple = <T extends unknown[]>(...params: T) => params;
+
+export * from './Union';
