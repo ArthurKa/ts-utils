@@ -6,9 +6,9 @@ ObjKeys(2);
 ObjKeys({ ad: 2, 33: 3 });
 // $ExpectType string[]
 ObjKeys(['a', 'b', 'c']);
-// $ExpectType ("0" | "1")[]
+// $ExpectType ("1" | "0")[]
 ObjKeys({ 0: 'a', 1: 'b' });
-// $ExpectType ("a" | "0" | "1")[]
+// $ExpectType ("a" | "1" | "0")[]
 ObjKeys({ 0: 'a', 1: 'b', a: 'c' });
 // $ExpectType ("2" | "7" | "100")[]
 ObjKeys({ 100: 'a', 2: 'b', 7: 'c' });

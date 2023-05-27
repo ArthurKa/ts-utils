@@ -14,7 +14,7 @@ export type Entries<T> = {
     T extends Map<unknown, infer U>
       ? [K, U]
       : [
-        K,
+        K extends number ? `${K}` : K,
         IsExactOptionalPropertyTypes extends false
           ? T[K]
           : T extends { [k in K]: unknown }
