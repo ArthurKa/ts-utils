@@ -1,9 +1,19 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-if [[ `git diff @ --name-only | grep -E "^(src|tests)/"` != "" ]]; then
-  npm run build
-  npm run ts:noWatch
-  npm run lint:check -- --max-warnings 0
-  npm t
+stashPop() {
+  if [ "$IS_STASHABLE" != '' ]; then
+    git stash pop
+  fi
+}
+
+git commit --allow-empty -nm 'Staged changes'
+git add .
+IS_STASHABLE=`git stash create`
+git reset
+if [ "$IS_STASHABLE" != '' ]; then
+  git stash push -um 'NON-COMMIT FILES BACKUP'
 fi
+git reset --soft @^
+npx lint-staged -r --no-stash || (stashPop && false)
+stashPop
