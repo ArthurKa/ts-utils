@@ -175,7 +175,7 @@ export type IsPositive<T extends number> = (
 );
 
 export * from './isArrayLength';
-
+export * from './isArrayIncludes';
 export * from './MinTupleLength';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
