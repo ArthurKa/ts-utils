@@ -9,6 +9,7 @@ module.exports = ((/** @type {import('eslint').Linter.Config} */ e) => e)({
       rules: {
         'import/no-unresolved': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
+        'no-unused-expressions': 'off',
         'no-multiple-empty-lines': ['warn', {
           max: 1,
           maxBOF: 0,

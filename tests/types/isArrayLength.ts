@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import { isArrayLength } from 'build';
 
 function testMore() {

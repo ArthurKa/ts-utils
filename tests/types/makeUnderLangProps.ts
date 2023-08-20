@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import { makeUnderLangPropsCreator } from 'build';
 import { byFulfilledObjectMixedKeysDeepLvl, byString, LANG } from 'tests/makeUnderLangProps/constants';
 
