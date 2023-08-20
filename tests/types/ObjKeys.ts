@@ -1,4 +1,4 @@
-import { ObjKeys } from 'build';
+import { ObjKeys } from 'dist';
 
 // $ExpectType string[]
 ObjKeys(2);

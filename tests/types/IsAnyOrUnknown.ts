@@ -1,4 +1,4 @@
-import { IsAnyOrUnknown } from 'build';
+import { IsAnyOrUnknown } from 'dist';
 
 type result = [
   // $ExpectType true

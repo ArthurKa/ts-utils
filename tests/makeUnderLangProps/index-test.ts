@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { makeUnderLangPropsCreator } from '../../build';
+import { makeUnderLangPropsCreator } from '../../dist';
 import {
   byEmptyObject,
   byFulfilledObjectMixedKeysDeepLvl,

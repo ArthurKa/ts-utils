@@ -1,4 +1,4 @@
-import { Entries } from 'build';
+import { Entries } from 'dist';
 
 // $ExpectType ["asd", 123 | undefined]
 type A1 = Entries<{ asd?: 123 }>[number];

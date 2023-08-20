@@ -1,4 +1,4 @@
-import { Combine } from 'build';
+import { Combine } from 'dist';
 
 interface A1 {
   a: boolean[];

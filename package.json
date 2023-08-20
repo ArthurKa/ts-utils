@@ -2,10 +2,10 @@
   "name": "@arthurka/ts-utils",
   "version": "3.9.2",
   "description": "Some convenient TS utilities.",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build:clean": "rm -rf build/*",
+    "build:clean": "rm -rf dist",
     "ts:noWatch": "tsc --noEmit",
     "ts": "npm run ts:noWatch -- -w",
     "lint:check": "eslint --ext js,jsx,ts,tsx src tests",

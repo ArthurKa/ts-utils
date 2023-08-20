@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { tuple } from '../build';
+import { tuple } from '../dist';
 
 let testNumber = 0;
 describe('tuple:', () => {

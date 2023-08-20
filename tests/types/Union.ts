@@ -1,4 +1,4 @@
-import { Union } from 'build';
+import { Union } from 'dist';
 import { Equal, ExpectTrue } from '@type-challenges/utils';
 
 type A = Union<

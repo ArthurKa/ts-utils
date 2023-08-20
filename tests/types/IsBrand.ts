@@ -1,4 +1,4 @@
-import { Brand, IsBrand } from 'build';
+import { Brand, IsBrand } from 'dist';
 
 type BrandedString = Brand<string, ''>;
 

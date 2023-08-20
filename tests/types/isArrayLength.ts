@@ -1,4 +1,4 @@
-import { isArrayLength } from 'build';
+import { isArrayLength } from 'dist';
 
 function testMore() {
   const arr: string[] = [];

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { isArrayLength } from '../build';
+import { isArrayLength } from '../dist';
 
 let testNumber = 0;
 describe('isArrayLength:', () => {

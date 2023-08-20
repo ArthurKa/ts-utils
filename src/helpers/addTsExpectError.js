@@ -11,7 +11,7 @@ const files = [
 ];
 
 files.forEach(([fileName, line]) => {
-  const filePath = path.resolve(`build/${fileName}.d.ts`);
+  const filePath = path.resolve(`dist/${fileName}.d.ts`);
 
   const lines = (
     fs

@@ -1,4 +1,4 @@
-import { isArrayIncludes } from 'build';
+import { isArrayIncludes } from 'dist';
 
 const arr1 = ['1'];
 const e1: Record<string, string | number> = {};

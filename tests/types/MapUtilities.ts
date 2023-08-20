@@ -1,4 +1,4 @@
-import { Entries, KeyOf, ObjEntries, ObjKeys, ObjValues, ValueOf } from 'build';
+import { Entries, KeyOf, ObjEntries, ObjKeys, ObjValues, ValueOf } from 'dist';
 
 type A = Map<'asd' | 'sdf', number>;
 type B = Record<'asd' | 'sdf', number>;

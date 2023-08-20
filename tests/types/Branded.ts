@@ -1,4 +1,4 @@
-import { Branded, WITNESS } from 'build';
+import { Branded, WITNESS } from 'dist';
 
 // Regular branding
 type Integer = Branded<number, 'Integer'>;

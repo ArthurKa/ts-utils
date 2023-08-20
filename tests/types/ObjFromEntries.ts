@@ -1,4 +1,4 @@
-import { ObjEntries, ObjFromEntries } from 'build';
+import { ObjEntries, ObjFromEntries } from 'dist';
 
 // $ExpectType Record<"a", number>
 ObjFromEntries(ObjEntries({ a: 2 }));

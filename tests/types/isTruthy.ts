@@ -1,4 +1,4 @@
-import { isTruthy } from 'build';
+import { isTruthy } from 'dist';
 
 const arr1 = [
   false,

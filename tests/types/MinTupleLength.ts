@@ -1,4 +1,4 @@
-import { MinTupleLength } from 'build';
+import { MinTupleLength } from 'dist';
 
 // $ExpectType 0
 type A1 = MinTupleLength<[]>;

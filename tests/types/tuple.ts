@@ -1,4 +1,4 @@
-import { tuple } from 'build';
+import { tuple } from 'dist';
 
 // $ExpectType [2, number]
 const a1 = tuple(2 as const, 3);

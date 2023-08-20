@@ -1,4 +1,4 @@
-import { makeUnderLangPropsCreator } from 'build';
+import { makeUnderLangPropsCreator } from 'dist';
 import { byFulfilledObjectMixedKeysDeepLvl, byString, LANG } from 'tests/makeUnderLangProps/constants';
 
 const makeUnderLangProps = makeUnderLangPropsCreator(LANG);
