@@ -7,13 +7,15 @@ stashPop() {
   fi
 }
 
-git commit --allow-empty -nm 'Staged changes'
-git add .
-IS_STASHABLE=`git stash create`
-git reset
-if [ "$IS_STASHABLE" != '' ]; then
-  git stash push -um 'NON-COMMIT FILES BACKUP'
+if [ "`git status --porcelain | grep -E "^.M |^\?\? "`" != '' ]; then
+  git commit --allow-empty -nm 'Staged changes'
+  git add .
+  IS_STASHABLE=`git stash create`
+  git reset
+  if [ "$IS_STASHABLE" != '' ]; then
+    git stash push -um 'NON-COMMIT FILES BACKUP'
+  fi
+  git reset --soft @^
 fi
-git reset --soft @^
 npx lint-staged -r --no-stash || (stashPop && false)
 stashPop
