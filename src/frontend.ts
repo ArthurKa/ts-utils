@@ -108,17 +108,17 @@ export function trimMultiline(strings: TemplateStringsArray, ...params: unknown[
   return res;
 }
 
-export function round(n: number, digits = 0) {
+export function round(n: number, precision = 0) {
   const [beforeDot, afterDot = ''] = String(n).split('.') as [string, string?];
 
-  if(afterDot[digits] === '5') {
+  if(afterDot[precision] === '5') {
     const arr = afterDot.split('');
-    arr.splice(digits, 1, '9');
+    arr.splice(precision, 1, '9');
     // eslint-disable-next-line no-param-reassign
     n = +`${beforeDot}.${arr.join('')}`;
   }
 
-  return +n.toFixed(digits);
+  return +n.toFixed(precision);
 }
 
 export function getRandom(max: number): number;
