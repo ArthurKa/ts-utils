@@ -75,3 +75,22 @@ interface N1 { a: string; }
 interface N2 { a: number; }
 
 type True2 = ExpectTrue<Equal<Union<N1 | N2>, N1 | N2>>;
+
+{
+  type T1 = Union<
+    | { a?: number }
+    | { b: string }
+  >;
+  type T2 = (
+    | {
+      a?: number;
+      b?: undefined;
+    }
+    | {
+      b: string;
+      a?: undefined;
+    }
+  );
+
+  type True = ExpectTrue<Equal<T1, T2>>;
+}

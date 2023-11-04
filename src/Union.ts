@@ -1,4 +1,4 @@
-import type { KeyOfUnion, TheSame } from '.';
+import type { KeyOfUnion, OptionalKeys, TheSame } from '.';
 
 export type Union<T extends object> = (
   KeyOfUnion<T> extends infer K
@@ -6,10 +6,11 @@ export type Union<T extends object> = (
       ? TheSame<K, keyof T> extends true
         ? T
         : (
-          & { [V in K extends keyof T ? K : never]: T[V] }
+          & { [V in K extends keyof T ? Exclude<K, OptionalKeys<T>> : never]: T[V] }
+          & { [V in K extends keyof T ? OptionalKeys<T> : never]?: T[V] }
           & { [V in K extends keyof T ? never : K & PropertyKey]?: undefined }
         ) extends infer V
-          ? { [K2 in keyof V]: V[K2] }
+          ? { [K in keyof V]: V[K] }
           : never
       : never
     : never

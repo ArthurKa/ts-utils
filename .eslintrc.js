@@ -8,6 +8,7 @@ module.exports = ((/** @type {import('eslint').Linter.Config} */ e) => e)({
       files: ['tests/types*/*.ts'],
       rules: {
         'import/no-unresolved': 'off',
+        'no-lone-blocks': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         'no-unused-expressions': 'off',
         'no-multiple-empty-lines': ['warn', {
