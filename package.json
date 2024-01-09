@@ -15,7 +15,7 @@
     "build": "npm run build:clean && npm run ts-compile && node src/helpers/addTsExpectError.js && npm run my-compile",
     "pu": "npm pu && git p && git pt",
     "mocha": "mocha -r ts-node/register tests/**/*-test.ts",
-    "dtslint": "dtslint tests/types && dtslint tests/types_NoNExactOptionalPropertyTypes",
+    "dtslint": "dtslint tests/types && dtslint tests/types_NoNExactOptionalPropertyTypes && dtslint tests/types_NoDOMLib",
     "test": "npm run mocha && npm run dtslint",
     "prepare": "husky install"
   },

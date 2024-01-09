@@ -34,7 +34,6 @@ const arr3 = [
   3,
   null,
   undefined,
-  document.all,
 ];
 
 // $ExpectType number[]

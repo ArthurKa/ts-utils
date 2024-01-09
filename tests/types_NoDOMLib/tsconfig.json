@@ -1,0 +1,22 @@
+// WARN: no trailing coma should be in this file
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": [
+      "es6"
+    ],
+    "target": "ES2020",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "baseUrl": "../..",
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  "files": [
+    "isTruthy.ts",
+    "index.d.ts"
+  ]
+}

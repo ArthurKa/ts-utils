@@ -157,8 +157,6 @@ export type NonExactOptional<T> = (
   & { [K in keyof T as undefined extends T[K] ? K : never]: T[K] | undefined }
 );
 
-export const isTruthy = <T>(e: T): e is Exclude<T, 0 | 0n | '' | false | null | undefined> => Boolean(e);
-
 export type Optional<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;
 
 export * from './branded';
@@ -177,6 +175,7 @@ export type IsPositive<T extends number> = (
 export * from './isArrayLength';
 export * from './isArrayIncludes';
 export * from './MinTupleLength';
+export * from './isTruthy';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type Combine<T1 extends object, T2 extends object, TKeys extends keyof T2> = (
