@@ -141,8 +141,7 @@ export type ExtractSet<T> = T extends Set<infer U> ? U : never;
 
 export type GeneratorParams<T> = T extends Generator<infer U, infer M, infer A> ? [U, M, A] : never;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export type GuardedType<T> = T extends (e: any) => e is infer T ? T : never;
+export type GuardedType<T> = T extends (e: any) => e is infer U ? U : never;
 
 export const wait = (seconds: number) => new Promise<void>(res => {
   setTimeout(res, seconds * 1000);
@@ -177,7 +176,6 @@ export * from './isArrayIncludes';
 export * from './MinTupleLength';
 export * from './isTruthy';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type Combine<T1 extends object, T2 extends object, TKeys extends keyof T2> = (
   & Omit<T1, TKeys>
   & Pick<T2, TKeys>

@@ -3,6 +3,9 @@
 
 module.exports = ((/** @type {import('eslint').Linter.Config} */ e) => e)({
   extends: './node_modules/@arthurka/eslint',
+  rules: {
+    'arrow-body-style': 'off',
+  },
   overrides: [
     {
       files: ['tests/types*/*.ts'],
