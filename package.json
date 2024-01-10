@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build:clean": "rm -rf dist",
+    "build:clean": "rm -rf dist/*",
     "ts:noWatch": "tsc --noEmit",
     "ts": "npm run ts:noWatch -- -w",
     "lint:check": "eslint --ext js,jsx,ts,tsx src tests",

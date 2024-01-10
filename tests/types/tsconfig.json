@@ -19,6 +19,7 @@
   "files": [
     "Branded.ts",
     "Combine.ts",
+    "DeepPartial.ts",
     "Entries.ts",
     "ExactShape.ts",
     "index.d.ts",

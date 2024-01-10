@@ -175,6 +175,7 @@ export * from './isArrayLength';
 export * from './isArrayIncludes';
 export * from './MinTupleLength';
 export * from './isTruthy';
+export * from './DeepPartial';
 
 export type Combine<T1 extends object, T2 extends object, TKeys extends keyof T2> = (
   & Omit<T1, TKeys>

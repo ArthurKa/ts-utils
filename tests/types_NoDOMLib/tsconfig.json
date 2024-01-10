@@ -12,10 +12,12 @@
     "strictFunctionTypes": true,
     "baseUrl": "../..",
     "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
     "skipLibCheck": true,
     "esModuleInterop": true
   },
   "files": [
+    "DeepPartial.ts",
     "isTruthy.ts",
     "index.d.ts"
   ]
