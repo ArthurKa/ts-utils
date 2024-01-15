@@ -1,4 +1,4 @@
-import { DeepPartial } from 'dist';
+import { Brand, DeepPartial } from 'dist';
 
 // $ExpectType { asd?: number | undefined; }
 type A1 = DeepPartial<{ asd: number }>;
@@ -29,3 +29,14 @@ type A9 = DeepPartial<{ arr: number[] }>;
 
 // $ExpectType { arr?: { a?: 123 | undefined; }[] | undefined; }
 type A10 = DeepPartial<{ arr: Array<{ a: 123 }> }>;
+
+// $ExpectType { brand?: (number & { __brand: true; }) | undefined; }
+type A11 = DeepPartial<{ brand: number & { __brand: true } }>;
+
+type Integer = Brand<number, 'Integer'>;
+// $ExpectType { brand?: Integer | undefined; }
+type A12 = DeepPartial<{ brand: Integer }>;
+
+type Obj = Brand<{ asd: 123 }, 'Obj'>;
+// $ExpectType { obj?: Obj | undefined; }
+type A13 = DeepPartial<{ obj: Obj }>;
