@@ -28,7 +28,8 @@ type GetBrands<U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = {
   )]: true;
 };
 
-export type Branded<T, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = RearrangeKeysAndUseWitness<{
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Branded<T extends {}, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = RearrangeKeysAndUseWitness<{
   [WITNESS]: T extends { [WITNESS]: unknown } ? T[WITNESS] : T;
   [BRANDS]: (
     T extends { [BRANDS]: unknown }
@@ -37,7 +38,8 @@ export type Branded<T, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = Rearrange
   );
 }>;
 
-export type Brand<T, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = Branded<T, U>;
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Brand<T extends {}, U extends BRAND | [BRAND, BRAND, ...BRAND[]]> = Branded<T, U>;
 
 export type IsBrand<T, U = unknown> = (
   IsAnyOrUnknown<T> extends true

@@ -70,3 +70,9 @@ type stringCAD = Branded<string, CAD>;
 type AbCD = Branded<Ab, CAD>;
 type AbCDbS = Branded<Ab, [CAD, AbS]>;
 type AbWCDbS = Branded<Ab, ['W', CAD, AbS]>;
+
+// @ts-expect-error
+type Error1 = Branded<null, 'null'>;
+
+// @ts-expect-error
+type Error2 = Branded<undefined, 'undefined'>;
