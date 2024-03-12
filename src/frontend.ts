@@ -69,9 +69,15 @@ export function ObjKeys<T extends true extends IsBadParamForObjKeys<T> ? never :
     : T extends Map<unknown, unknown>
       ? KeyOf<T>[]
       : T extends Record<string, any>
-        ? Array<keyof {
-          [K in KeyOf<T> as `${K}`]: true;
-        }>
+        ? Array<
+          KeyOf<T> extends infer U
+            ? U extends KeyOf<T>
+              ? U extends string
+                ? U
+                : `${U}`
+              : never
+            : never
+        >
         : ReturnType<typeof Object.keys>
 /* eslint-enable @typescript-eslint/indent */
 ) {
