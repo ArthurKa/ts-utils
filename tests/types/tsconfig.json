@@ -37,6 +37,7 @@
     "ObjKeys.ts",
     "OptionalKeys.ts",
     "tuple.ts",
-    "Union.ts"
+    "Union.ts",
+    "Unionize.ts"
   ]
 }
