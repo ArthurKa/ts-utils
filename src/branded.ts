@@ -1,7 +1,7 @@
 import type { ExtractGeneric, IsAnyOrUnknown, KeyOfUnion } from '.';
 
-declare const BRANDS: unique symbol;
-type BRANDS = typeof BRANDS;
+export declare const BRANDS: unique symbol;
+export type BRANDS = typeof BRANDS;
 
 export declare const WITNESS: unique symbol;
 export type WITNESS = typeof WITNESS;
