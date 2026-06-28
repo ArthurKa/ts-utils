@@ -35,6 +35,5 @@ module.exports = ((/** @type {import('lint-staged').Config} */ e) => e)(files =>
     );
   }
 
-
   return commands;
 });

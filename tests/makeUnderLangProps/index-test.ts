@@ -1,11 +1,7 @@
 import assert from 'assert';
-import { makeUnderLangPropsCreator } from '../../dist';
-import {
-  byEmptyObject,
-  byFulfilledObjectMixedKeysDeepLvl,
-  byString,
-  LANG,
-} from './constants';
+import { makeUnderLangPropsCreator } from '../../dist/esm/index.js';
+// eslint-disable-next-line import/extensions
+import { byEmptyObject, byFulfilledObjectMixedKeysDeepLvl, byString, LANG } from './constants.ts';
 
 const makeUnderLangProps = makeUnderLangPropsCreator(LANG);
 

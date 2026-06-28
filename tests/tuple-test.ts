@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { tuple } from '../dist';
+import { tuple } from '../dist/esm/index.js';
 
 let testNumber = 0;
 describe('tuple:', () => {

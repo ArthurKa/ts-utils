@@ -1,16 +1,5 @@
 import assert from 'assert';
-import {
-  getNotNull,
-  getNotNullSimple,
-  getNotUndefined,
-  getNotUndefinedSimple,
-  isNull,
-  isNullish,
-  isNullishSimple,
-  isNullSimple,
-  isUndefined,
-  isUndefinedSimple,
-} from '../dist';
+import { getNotNull, getNotNullSimple, getNotUndefined, getNotUndefinedSimple, isNull, isNullish, isNullishSimple, isNullSimple, isUndefined, isUndefinedSimple } from '../dist/esm/index.js';
 
 let testNumber = 0;
 describe('null-undefined:', () => {

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { unionObject } from '../dist';
+import { unionObject } from '../dist/esm/index.js';
 
 let testNumber = 0;
 describe('unionObject:', () => {

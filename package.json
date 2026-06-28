@@ -2,22 +2,23 @@
   "name": "@arthurka/ts-utils",
   "version": "3.17.2",
   "description": "Some convenient TS utilities.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
+    "prune": "rm -rf node_modules && npm run prune:sub",
+    "prune:sub": "rm -rf packages/*/node_modules",
     "build:clean": "rm -rf dist/*",
     "ts:noWatch": "tsc --noEmit",
     "ts": "npm run ts:noWatch -- -w",
     "lint:check": "eslint --ext js,jsx,ts,tsx src tests",
     "lint:fix": "npm run lint:check -- --fix",
-    "ts-compile": "tsc --declaration",
-    "my-compile": "node ../compile.js",
-    "build": "npm run build:clean && npm run ts-compile && node src/helpers/addTsExpectError.js && npm run my-compile",
+    "build:js": "node scripts/build.js",
+    "build:types": "tsc -p tsconfig.esm.json --emitDeclarationOnly && tsc -p tsconfig.cjs.json --emitDeclarationOnly && node scripts/addTsExpectErrors.cjs",
+    "my-compile": "node ../my-compile.cjs",
+    "build": "npm run build:clean && npm run build:js && npm run build:types && npm run my-compile",
     "pu": "npm pu && git p && git pt",
-    "mocha": "mocha -r ts-node/register tests/**/*-test.ts",
+    "mocha": "node --loader ./scripts/ts-esm-loader.js ./node_modules/mocha/lib/cli/cli.js \"tests/**/*-test.ts\"",
     "dtslint": "dtslint tests/types && dtslint tests/types_NoNExactOptionalPropertyTypes && dtslint tests/types_NoDOMLib",
     "test": "npm run mocha && npm run dtslint",
-    "prepare": "husky install"
+    "prepare": "node -e \"try { require('husky').install(); } catch(e) { if(e.code !== 'MODULE_NOT_FOUND') throw e; }\""
   },
   "dependencies": {
     "node-fetch": "^2.6.2",
@@ -31,12 +32,27 @@
     "@types/node": "^16.9.3",
     "@types/node-fetch": "^2.5.12",
     "dtslint": "^4.2.1",
+    "esbuild": "^0.28.1",
     "husky": "^7.0.4",
     "lint-staged": "14.0.0",
     "mocha": "^9.1.3",
     "ts-node": "^10.4.0",
-    "typescript": "5.1.6"
+    "typescript": "5.8.3"
   },
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "types": "./dist/esm/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": {
     "name": "ArthurKa",

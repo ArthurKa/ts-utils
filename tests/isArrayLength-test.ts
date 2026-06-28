@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { isArrayLength } from '../dist';
+import { isArrayLength } from '../dist/esm/index.js';
 
 let testNumber = 0;
 describe('isArrayLength:', () => {

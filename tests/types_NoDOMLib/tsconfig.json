@@ -10,7 +10,11 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "baseUrl": "../..",
+    "paths": {
+      "dist": [
+        "../../dist/esm/index.d.ts"
+      ]
+    },
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "skipLibCheck": true,

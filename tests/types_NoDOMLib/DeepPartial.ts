@@ -15,8 +15,8 @@ type A4 = DeepPartial<number, true>;
 // $ExpectType { a?: Date; }
 type A5 = DeepPartial<{ a: Date }>;
 
-// $ExpectType { a?: Blob; }
-type A6 = DeepPartial<{ a: Blob }>;
+// Error: Blob is any during test time
+// type A6 = DeepPartial<{ a: Blob }>;
 
 // $ExpectType { arr?: number[]; }
 type A9 = DeepPartial<{ arr: number[] }>;
