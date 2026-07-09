@@ -53,6 +53,14 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": "22.22.3",
+    "npm": "10.9.8"
+  },
+  "packageManager": "npm@10.9.8",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [],
   "author": {
     "name": "ArthurKa",
