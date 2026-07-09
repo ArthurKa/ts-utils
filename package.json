@@ -48,11 +48,6 @@
       "types": "./dist/esm/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.cjs"
-    },
-    "./backend": {
-      "types": "./dist/esm/backend.d.ts",
-      "import": "./dist/esm/backend.js",
-      "require": "./dist/cjs/backend.cjs"
     }
   },
   "files": [

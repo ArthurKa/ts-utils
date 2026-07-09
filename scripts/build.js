@@ -19,20 +19,18 @@ const externalizePackagesPlugin = {
 const builds = [
   {
     format: 'esm',
-    entryPoints: ['src/index.ts', 'src/backend.ts'],
-    outdir: 'dist/esm',
+    outfile: 'dist/esm/index.js',
   },
   {
     format: 'cjs',
-    entryPoints: ['src/index.ts', 'src/backend.ts'],
-    outdir: 'dist/cjs',
-    outExtension: { '.js': '.cjs' },
+    outfile: 'dist/cjs/index.cjs',
   },
 ];
 
 await Promise.all(
   builds.map(options => build({
     bundle: true,
+    entryPoints: ['src/index.ts'],
     plugins: [externalizePackagesPlugin],
     platform: 'node',
     target: 'es2020',
