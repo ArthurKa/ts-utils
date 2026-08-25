@@ -188,7 +188,10 @@ export type Combine<T1 extends object, T2 extends object, TKeys extends keyof T2
   & Pick<T2, TKeys>
 );
 
-export const tuple = <T extends unknown[]>(...params: T) => params;
+export const tuple = <T extends unknown[]>(e: [...T]) => e;
+
+// Syntax `const T` is too new syntax for this repo TS version
+export const literalArray = <T extends string | number | bigint | boolean | symbol | null | undefined>(e: T[]): T[] => e;
 
 export * from './Union';
 export * from './Unionize';

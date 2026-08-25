@@ -33,6 +33,7 @@
     "IsBrand.ts",
     "IsExactOptionalPropertyTypes.ts",
     "isTruthy.ts",
+    "literalArray.ts",
     "makeUnderLangProps.ts",
     "MapUtilities.ts",
     "MinTupleLength.ts",
